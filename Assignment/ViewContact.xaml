@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Assignment"
         mc:Ignorable="d"
-        Title="ViewContact" Height="450" Width="800" Background="#FE3362">
+        Title="ViewContact" Height="450" Width="800" Background="#FE3362" Icon="Images/WRITE.png">
     <Grid>
     <Grid.RowDefinitions>
       <RowDefinition Height="*"/>
@@ -66,6 +66,8 @@
       </StackPanel>
 
       <Button Grid.Column="3" Width="100" Height="30" Content="Update" FontSize="16" Background="#2CE9C4" Click="UpdateBtnClick" />
+      <Button Grid.Column="3" Width="100" Height="30" Content="Edit" FontSize="16" Margin="0 0 0 100" Background="#2CE9C4" Click="UpdateBtnClick" />
+      <Button Grid.Column="3" Width="100" Height="30" Content="Delete" FontSize="16" Margin="0 0 0 -100" Background="#2CE9C4" Click="DeleteBtnClick" />
     </Grid>
   </Grid>
 </Window>

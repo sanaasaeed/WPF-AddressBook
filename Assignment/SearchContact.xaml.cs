@@ -22,6 +22,18 @@ namespace Assignment {
       CurrentEmail = currentEmail;
     }
 
+    private void BackBtnClick(object sender, RoutedEventArgs e) {
+      var home = new Home(CurrentEmail, Students);
+      home.Show();
+      Close();
+    }
+
+    private void LogOutClick(object sender, RoutedEventArgs e) {
+      var login = new MainWindow(Students);
+      login.Show();
+      Close();
+    }
+
 
     private void OnTextChange(object sender, TextChangedEventArgs e) {
       listBoxF.Visibility = Visibility.Visible;

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -51,6 +52,27 @@ namespace Assignment {
       canvasX.Visibility = Visibility.Visible;
       StackPanelBind.Visibility = Visibility.Visible;
       panelX.Visibility = Visibility.Visible;
+    }
+
+    private void DeleteBtnClick(object sender, RoutedEventArgs e) {
+      if (ComboContacts.SelectedItem != null) {
+        foreach (var student in Students) {
+          if (student.Email == CurrentStudentEmail) {
+            student.Addresses.Remove((AddressBook)ComboContacts.SelectedItem);
+            ComboContacts.Items.Refresh();
+
+            canvasX.Visibility = Visibility.Hidden;
+            StackPanelBind.Visibility = Visibility.Hidden;
+            panelX.Visibility = Visibility.Hidden;
+            MessageBox.Show("Contact Deleted..");
+          }
+
+        }
+      }
+      else {
+        MessageBox.Show("Nothing to delete..");
+      }
+      
     }
   }
 }

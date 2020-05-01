@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Assignment"
         mc:Ignorable="d"
-        Title="SearchContact" Height="450" Width="800"  Background="#FE3362">
+        Title="SearchContact" Height="450" Width="800"  Background="#FE3362" Icon="Images/WRITE.png">
   <Grid>
     <Grid.RowDefinitions>
       <RowDefinition Height="*"/>
@@ -42,5 +42,9 @@
         
       </Grid>
     </StackPanel>
+    <Button HorizontalAlignment="Right" Margin="0,0,726.6,13" VerticalAlignment="Bottom" Background="#2CE9C4" Click="BackBtnClick"  Width="40" Height="32">
+      <Image Source="Images/back.png"/>
+    </Button>
+    <Button Content="Logout" FontSize="16" Background="#2CE9C4" Margin="636,0,70.6,20" VerticalAlignment="Bottom" Click="LogOutClick"/>
   </Grid>
 </Window>
