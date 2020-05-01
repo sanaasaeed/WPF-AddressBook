@@ -53,6 +53,12 @@ namespace Assignment {
       canvasX.Visibility = Visibility.Visible;
       StackPanelBind.Visibility = Visibility.Visible;
       panelX.Visibility = Visibility.Visible;
+      FirstNameTb.IsEnabled = false;
+      LastNameTb.IsEnabled = false;
+      PhoneNumTb.IsEnabled = false;
+      CompanyTb.IsEnabled = false;
+      JobTb.IsEnabled = false;
+      AddressTb.IsEnabled = false;
     }
     // Delete Button
     private void DeleteBtnClick(object sender, RoutedEventArgs e) {
