@@ -19,11 +19,11 @@ namespace Assignment {
   public partial class Home : Window {
     public string CurrentStudentEmail;
     public List<Student> Students;
+    // Passing Data between different windows
     public Home(string currentStudentEmail, List<Student> students) {
       InitializeComponent();
       this.CurrentStudentEmail = currentStudentEmail;
       this.Students = students;
-      // var Add = new AddContact();
     }
 
     public Home() {
@@ -35,6 +35,8 @@ namespace Assignment {
      view.Show();
      Close();
     }
+
+    // Clicks should open up new window or return to previous windows depending upon the element clicked
     private void LogOutClick(object sender, RoutedEventArgs e) {
       var login = new MainWindow(Students);
       login.Show();

@@ -21,7 +21,7 @@ namespace Assignment {
       Students = students;
       CurrentEmail = currentEmail;
     }
-
+    // btns to get back and logout
     private void BackBtnClick(object sender, RoutedEventArgs e) {
       var home = new Home(CurrentEmail, Students);
       home.Show();
@@ -34,14 +34,14 @@ namespace Assignment {
       Close();
     }
 
-
+    // Seacrh Functionality
     private void OnTextChange(object sender, TextChangedEventArgs e) {
-      listBoxF.Visibility = Visibility.Visible;
+      listBoxF.Visibility = Visibility.Visible; // Initially we should not be able to see the list
       string name = this.searchBar.Text;
       foreach (var student in Students) {
-        if (student.Email == CurrentEmail) {
-          filteredList = student.Addresses.FindAll(s => s.FirstName.ToLower().Contains(name.ToLower()));
-          listBoxF.ItemsSource = filteredList;
+        if (student.Email == CurrentEmail) { // We are using logged in person's info
+          filteredList = student.Addresses.FindAll(s => s.FirstName.ToLower().Contains(name.ToLower())); // Predicate to filter
+          listBoxF.ItemsSource = filteredList; // Set List source
         }
       }
       

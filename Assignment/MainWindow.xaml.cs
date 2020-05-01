@@ -24,13 +24,13 @@ namespace Assignment {
 
     private void Login_OnClick(object sender, RoutedEventArgs e) {
       bool login = false;
+      // Login Functionality
       foreach (var student in Students) {
         if (EmailBox.Text == student.Email && PasswordBox.Password == student.Password) {
           login = true;
           CurrentStudentEmail = student.Email;
+          // Login button to open a new window
           var home = new Home(CurrentStudentEmail, Students);
-          // var menu = new AddContact();
-          // menu.DataContext = this;
           home.Show();
           Close();
         }
@@ -64,7 +64,5 @@ namespace Assignment {
     public string JobTitle { get; set; }
     public string Address { get; set; }
     public string Photo { get; set; }
-
-
   }
 }

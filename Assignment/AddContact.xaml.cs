@@ -1,17 +1,8 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Microsoft.Win32;
 
 namespace Assignment {
   /// <summary>
@@ -25,7 +16,7 @@ namespace Assignment {
       CurrentStudentEmail = currentStudentEmail;
       this.Students = students;
     }
-
+    // Uploading picture
     private void UploadImageClick(object sender, RoutedEventArgs e) {
       OpenFileDialog op = new OpenFileDialog();
       op.Title = "Select a picture";
@@ -38,7 +29,7 @@ namespace Assignment {
 
       }
     }
-
+    // btns to get back and logout
     private void BackBtnClick(object sender, RoutedEventArgs e) {
       var home = new Home(CurrentStudentEmail, Students);
       home.Show();
@@ -50,10 +41,10 @@ namespace Assignment {
       login.Show();
       Close();
     }
-
+// Saving the contents of textboxes in the our list of addresses
     private void SubmitBtnClick(object sender, RoutedEventArgs e) {
       foreach (var student in Students) {
-        if (student.Email == CurrentStudentEmail) {
+        if (student.Email == CurrentStudentEmail) {   // To add information to logged in user
           if (FirstNameTb.Text == "" || LastNameTb.Text == "" || PhoneNumTb.Text == "" || AddressTb.Text == "" ||
               JobTb.Text == "" || Photo.Source == null) {
             MessageBox.Show("Enter all fields");
@@ -65,7 +56,7 @@ namespace Assignment {
           
         }
       }
-
+      // After filling in the textboxes clear the form to fill in again
       FirstNameTb.Text = LastNameTb.Text =
         PhoneNumTb.Text = AddressTb.Text = CompanyTb.Text = JobTb.Text  = "";
       Photo.Source = new BitmapImage();

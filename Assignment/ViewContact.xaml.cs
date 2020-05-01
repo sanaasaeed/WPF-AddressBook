@@ -27,6 +27,7 @@ namespace Assignment {
     public ViewContact() {
       InitializeComponent();
     }
+    // back and logout btns
     private void BackBtnClick(object sender, RoutedEventArgs e) {
       var home = new Home(CurrentStudentEmail, Students);
       home.Show();
@@ -37,7 +38,7 @@ namespace Assignment {
       login.Show();
       Close();
     }
-
+    // When we click edit or update, Textboxes are enabled
     private void UpdateBtnClick(object sender, RoutedEventArgs e) {
       FirstNameTb.IsEnabled = true;
       LastNameTb.IsEnabled = true;
@@ -47,21 +48,22 @@ namespace Assignment {
       AddressTb.IsEnabled = true;
       ComboContacts.Items.Refresh();
     }
-
+    // On changing combo box item list should be visible
     private void OnChange(object sender, SelectionChangedEventArgs e) {
       canvasX.Visibility = Visibility.Visible;
       StackPanelBind.Visibility = Visibility.Visible;
       panelX.Visibility = Visibility.Visible;
     }
-
+    // Delete Button
     private void DeleteBtnClick(object sender, RoutedEventArgs e) {
       if (ComboContacts.SelectedItem != null) {
         foreach (var student in Students) {
           if (student.Email == CurrentStudentEmail) {
+            // Remove from original list the contact that is currently selected in ComboContacts 
             student.Addresses.Remove((AddressBook)ComboContacts.SelectedItem);
-            ComboContacts.Items.Refresh();
-
-            canvasX.Visibility = Visibility.Hidden;
+            ComboContacts.Items.Refresh(); // To see the changes
+            // Hide the panels as they contain nothing now
+            canvasX.Visibility = Visibility.Hidden; 
             StackPanelBind.Visibility = Visibility.Hidden;
             panelX.Visibility = Visibility.Hidden;
             MessageBox.Show("Contact Deleted..");
@@ -70,6 +72,7 @@ namespace Assignment {
         }
       }
       else {
+        // If any contact is not selected
         MessageBox.Show("Nothing to delete..");
       }
       
