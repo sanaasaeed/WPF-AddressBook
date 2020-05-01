@@ -57,7 +57,7 @@ namespace Assignment {
     
     public string Email { get; set; }
     public string Password { get; set; }
-    public List<AddressBook> Addresses = new List<AddressBook>(){new AddressBook(){FirstName = "Sana", LastName = "Saeed", Address = "Block D", PhoneNumber = "0331", Photo = ".//Images/uni.png", Company = "Company Co", JobTitle = "Engineer"}};
+    public List<AddressBook> Addresses = new List<AddressBook>(){new AddressBook(){FirstName = "Sana", LastName = "Saeed", Address = "Block D", PhoneNumber = "0331", Photo = ".//Images/profile.jpg", Company = "Company Co", JobTitle = "Engineer"}};
   }
 
   public class AddressBook {

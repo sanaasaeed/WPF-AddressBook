@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="SearchContact.xaml.cs">
+      <DependentUpon>SearchContact.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewContact.xaml.cs">
       <DependentUpon>ViewContact.xaml</DependentUpon>
     </Compile>
@@ -84,6 +87,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="SearchContact.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ViewContact.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -115,7 +122,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\profile.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\add.png" />
     <Resource Include="Images\back.png" />
@@ -123,6 +132,9 @@
     <Resource Include="Images\uni.png" />
     <Resource Include="Images\view.png" />
     <Resource Include="Images\WRITE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\blacksearch.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

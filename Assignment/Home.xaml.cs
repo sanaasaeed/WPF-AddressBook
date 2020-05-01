@@ -48,7 +48,9 @@ namespace Assignment {
     }
 
     private void SearchContactClick(object sender, MouseButtonEventArgs e) {
-      MessageBox.Show(CurrentStudentEmail);
+      var Search = new SearchContact(CurrentStudentEmail, Students);
+      Search.Show();
+      Close();
     }
   }
 }

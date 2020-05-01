@@ -16,11 +16,11 @@
       
     <StackPanel Grid.Row="1">
       <TextBlock Text="Select Contact to view information" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" FontSize="28" Foreground="#fff"></TextBlock>
-      <ComboBox Width="500" Height="30" x:Name="ComboContacts" ItemTemplate="{DynamicResource DataTemplate1}">
+      <ComboBox Width="500" Height="30" x:Name="ComboContacts" SelectionChanged="OnChange" ItemTemplate="{DynamicResource DataTemplate1}">
       <ComboBox.Resources>
         <DataTemplate x:Key="DataTemplate1">
           <StackPanel Orientation="Horizontal">
-            <Image Source="C:\Users\sunfu\OneDrive\Desktop\profile.jpg" Height="50" Margin="5"/>
+            <Image Source="{Binding Photo}" Height="50" Width="50" Margin="5"/>
             <StackPanel Orientation="Vertical">
               <TextBlock Text="{Binding FirstName}" Margin="5 5 0 0"/>
               <TextBlock Text="{Binding LastName}" Margin="5 5 0 0"></TextBlock>
@@ -43,26 +43,26 @@
         <ColumnDefinition Width="2*"/>
         <ColumnDefinition Width="*"/>
       </Grid.ColumnDefinitions>
-      <Canvas Grid.Column="0" Height="160" Width="160" Background="#fff" Grid.ColumnSpan="2" Margin="28,10,289,93">
+      <Canvas Grid.Column="0" Height="160" Width="160" Background="#fff" Grid.ColumnSpan="2" Visibility="Hidden" Margin="28,10,289,93" x:Name="canvasX">
         <Image x:Name="Photo" Height="160" Width="160" Stretch="Fill" Source="{Binding ElementName=ComboContacts, Path=SelectedItem.Photo}"/>
       </Canvas>
 
-      <StackPanel Grid.Column="1" Margin="10 0 0 0" x:Name="StackPanelBind">
+      <StackPanel Grid.Column="1" Margin="10 0 0 0" Visibility="Hidden" x:Name="StackPanelBind">
         <TextBlock FontSize="23" Text="First Name" Margin="60 0 0 5" Foreground="#fff"/>
-        <TextBox x:Name="FirstNameTb" Padding="5" Margin="60 0 0 20" FontSize="14" Text="{Binding ElementName=ComboContacts, Path=SelectedItem.FirstName, Mode=OneWay}"/>
+        <TextBox x:Name="FirstNameTb" Padding="5" Margin="60 0 0 20" FontSize="14" Text="{Binding ElementName=ComboContacts, Path=SelectedItem.FirstName}" IsEnabled="False"/>
         <TextBlock FontSize="23" Text="Last Name" Margin="60 0 0 5" Foreground="#fff" />
-        <TextBox Padding="5" x:Name="LastNameTb" Margin="60 0 0 20" FontSize="14" Text="{Binding ElementName=ComboContacts, Path=SelectedItem.LastName, Mode=OneWay}"/>
+        <TextBox Padding="5" x:Name="LastNameTb" Margin="60 0 0 20" FontSize="14" Text="{Binding ElementName=ComboContacts, Path=SelectedItem.LastName, Mode=TwoWay}" IsEnabled="False"/>
         <TextBlock FontSize="23" Text="Phone Number" Margin="60 0 0 5" Foreground="#fff"/>
-        <TextBox Padding="5" Margin="60 0 0 0" x:Name="PhoneNumTb" FontSize="14" Text="{Binding ElementName=ComboContacts, Path=SelectedItem.PhoneNumber, Mode=OneWay}"/>
+        <TextBox Padding="5" Margin="60 0 0 0" x:Name="PhoneNumTb" FontSize="14" Text="{Binding ElementName=ComboContacts, Path=SelectedItem.PhoneNumber, Mode=TwoWay}" IsEnabled="False"/>
       </StackPanel>
 
-      <StackPanel Grid.Column="2" Margin="10 0 0 0">
+      <StackPanel Grid.Column="2" Visibility="Hidden" Margin="10 0 0 0" x:Name="panelX">
         <TextBlock FontSize="23" Text="Company" Margin="10 0 0 5" Foreground="#fff"/>
-        <TextBox Padding="5" Margin="10 0 0 20" x:Name="CompanyTb" Text="{Binding ElementName=ComboContacts, Path=SelectedItem.Company, Mode=OneWay}"/>
+        <TextBox Padding="5" Margin="10 0 0 20" IsEnabled="False" x:Name="CompanyTb" Text="{Binding ElementName=ComboContacts, Path=SelectedItem.Company, Mode=TwoWay}"/>
         <TextBlock FontSize="23" Text="Job Title" Margin="10 0 0 5" Foreground="#fff"/>
-        <TextBox Padding="5" Margin="10 0 0 20" x:Name="JobTb" Text="{Binding ElementName=ComboContacts, Path=SelectedItem.JobTitle, Mode=OneWay}"/>
+        <TextBox Padding="5" Margin="10 0 0 20" x:Name="JobTb" Text="{Binding ElementName=ComboContacts, Path=SelectedItem.JobTitle, Mode=TwoWay}" IsEnabled="False"/>
         <TextBlock FontSize="23" Text="Address" Margin="10 0 0 5" Foreground="#fff"/>
-        <TextBox Padding="5" Margin="10 0 0 20" x:Name="AddressTb" Text="{Binding ElementName=ComboContacts, Path=SelectedItem.Address, Mode=OneWay}"/>
+        <TextBox Padding="5" Margin="10 0 0 20" x:Name="AddressTb" Text="{Binding ElementName=ComboContacts, Path=SelectedItem.Address, Mode=TwoWay}" IsEnabled="False"/>
       </StackPanel>
 
       <Button Grid.Column="3" Width="100" Height="30" Content="Update" FontSize="16" Background="#2CE9C4" Click="UpdateBtnClick" />
