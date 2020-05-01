@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Visibility = System.Windows.Visibility;
 
 namespace Assignment {
   /// <summary>
@@ -19,6 +20,7 @@ namespace Assignment {
   public partial class SearchContact : Window {
     public string CurrentEmail;
     public List<Student> Students;
+    public List<AddressBook> addresses;
     public SearchContact() {
       InitializeComponent();
     }
@@ -27,16 +29,19 @@ namespace Assignment {
       InitializeComponent();
       Students = students;
       CurrentEmail = currentEmail;
+      foreach (var student in Students) {
+        if (student.Email == CurrentEmail) {
+          addresses = student.Addresses;
+        }
+      }
+      listBoxF.ItemsSource = addresses;
     }
 
-    private void SearchOnKeyDown(object sender, KeyEventArgs e) {
-      // listi.Content = "Hey";
-      // foreach (var student in Students) {
-      //   if (student.Email == CurrentEmail) {
-      //     Predicate<AddressBook> addressPredicate = (AddressBook adr) => adr.FirstName == "Sana";
-      //   }
-      // }
-      
+
+    private void OnTextChange(object sender, TextChangedEventArgs e) {
+      listBoxF.Visibility = Visibility.Visible;
+      string name = this.searchBar.Text;
+      // List<AddressBook> addr = addresses[name.ToLower()];
     }
   }
 }

@@ -17,15 +17,28 @@
 
       <TextBlock Text="Search Contact" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20" FontSize="28" Foreground="#fff"></TextBlock>
       <StackPanel Orientation="Horizontal">
-        <TextBox Height="30" Width="400" Margin="200 0 0 0" KeyDown="SearchOnKeyDown"/>
+        <TextBox x:Name="searchBar" Height="30" Width="400" Margin="200 0 0 0" Padding="5" TextChanged="OnTextChange"/>
         <Button Background="#2CE9C4" BorderBrush="#FF2CE9C4">
           <Image Source="Images/blacksearch.png" Width="20" Margin="5 0 0 0"></Image>
         </Button>
       </StackPanel>
       <Grid>
-        <ListBox Margin="100,30,100,0">
+        <ListBox x:Name="listBoxF" Margin="100,30,100,0" Visibility="Hidden" ItemTemplate="{DynamicResource ListBoxFilter}">
+          <ListBox.Resources>
+            <DataTemplate x:Key="ListBoxFilter">
+              <StackPanel Orientation="Horizontal">
+                <Image Height="40" Width="40" Source="{Binding Photo}"/>
+                <StackPanel>
+                  <TextBlock Margin="10 5" Text="{Binding FirstName}"/>
+                  <TextBlock Margin="10 5" Text="{Binding LastName}"/>
+                </StackPanel>
+                
+              </StackPanel>
+                
+            </DataTemplate>
+          </ListBox.Resources>
         </ListBox>
       </Grid>
-      </StackPanel>
+    </StackPanel>
   </Grid>
 </Window>
