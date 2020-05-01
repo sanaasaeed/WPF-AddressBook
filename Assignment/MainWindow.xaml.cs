@@ -76,7 +76,6 @@ namespace Assignment {
     public string Address { get; set; }
     public string Photo { get; set; }
 
-    
 
   }
 }

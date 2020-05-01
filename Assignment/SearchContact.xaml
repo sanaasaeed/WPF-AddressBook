@@ -23,21 +23,23 @@
         </Button>
       </StackPanel>
       <Grid>
-        <ListBox x:Name="listBoxF" Margin="100,30,100,0" Visibility="Hidden" ItemTemplate="{DynamicResource ListBoxFilter}">
+
+        <ListBox x:Name="listBoxF" Margin="100,30,100,0" ItemTemplate="{DynamicResource ListBoxFilter}" Visibility="Hidden">
           <ListBox.Resources>
             <DataTemplate x:Key="ListBoxFilter">
+
               <StackPanel Orientation="Horizontal">
                 <Image Height="40" Width="40" Source="{Binding Photo}"/>
                 <StackPanel>
                   <TextBlock Margin="10 5" Text="{Binding FirstName}"/>
                   <TextBlock Margin="10 5" Text="{Binding LastName}"/>
                 </StackPanel>
-                
+
               </StackPanel>
-                
             </DataTemplate>
           </ListBox.Resources>
         </ListBox>
+        
       </Grid>
     </StackPanel>
   </Grid>
