@@ -24,20 +24,20 @@
 
         <StackPanel Grid.Column="0" Margin="10 0 0 0">
           <TextBlock FontSize="23" Text="First Name" Margin="10 0 0 5" Foreground="#fff"/>
-          <TextBox x:Name="FirstNameTb" Padding="5" Margin="10 0 0 20"/>
+          <TextBox x:Name="FirstNameTb" Padding="5" Margin="10 0 0 20" FontSize="16"/>
           <TextBlock FontSize="23" Text="Last Name" Margin="10 0 0 5" Foreground="#fff"/>
-          <TextBox Padding="5" x:Name="LastNameTb" Margin="10 0 0 20"/>
+          <TextBox Padding="5" x:Name="LastNameTb" Margin="10 0 0 20" FontSize="16"/>
           <TextBlock FontSize="23" Text="Phone Number" Margin="10 0 0 5" Foreground="#fff"/>
-          <TextBox Padding="5" Margin="10 0 0 0" x:Name="PhoneNumTb"/>
+          <TextBox Padding="5" Margin="10 0 0 0" x:Name="PhoneNumTb" FontSize="16"/>
         </StackPanel>
 
         <StackPanel Grid.Column="1" Margin="10 0 0 0">
           <TextBlock FontSize="23" Text="Company" Margin="10 0 0 5" Foreground="#fff"/>
-          <TextBox Padding="5" Margin="10 0 0 20" x:Name="CompanyTb"/>
+          <TextBox Padding="5" Margin="10 0 0 20" x:Name="CompanyTb" FontSize="16"/>
           <TextBlock FontSize="23" Text="Job Title" Margin="10 0 0 5" Foreground="#fff"/>
-          <TextBox Padding="5" Margin="10 0 0 20" x:Name="JobTb"/>
+          <TextBox Padding="5" Margin="10 0 0 20" x:Name="JobTb" FontSize="16"/>
           <TextBlock FontSize="23" Text="Address" Margin="10 0 0 5" Foreground="#fff"/>
-          <TextBox Padding="5" Margin="10 0 0 0" x:Name="AddressTb"/>
+          <TextBox Padding="5" Margin="10 0 0 0" x:Name="AddressTb" FontSize="16"/>
         </StackPanel>
 
         <StackPanel Grid.Column="2">

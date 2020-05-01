@@ -57,19 +57,24 @@ namespace Assignment {
     // Delete Button
     private void DeleteBtnClick(object sender, RoutedEventArgs e) {
       if (ComboContacts.SelectedItem != null) {
-        foreach (var student in Students) {
-          if (student.Email == CurrentStudentEmail) {
-            // Remove from original list the contact that is currently selected in ComboContacts 
-            student.Addresses.Remove((AddressBook)ComboContacts.SelectedItem);
-            ComboContacts.Items.Refresh(); // To see the changes
-            // Hide the panels as they contain nothing now
-            canvasX.Visibility = Visibility.Hidden; 
-            StackPanelBind.Visibility = Visibility.Hidden;
-            panelX.Visibility = Visibility.Hidden;
-            MessageBox.Show("Contact Deleted..");
-          }
+        MessageBoxResult messageBoxResult = MessageBox.Show("Are You Sure You Want To Delete?", "Delete Confirmation",
+          MessageBoxButton.YesNo);
+        if (messageBoxResult == MessageBoxResult.Yes) {
+          foreach (var student in Students) {
+            if (student.Email == CurrentStudentEmail) {
+              // Remove from original list the contact that is currently selected in ComboContacts 
+              student.Addresses.Remove((AddressBook)ComboContacts.SelectedItem);
+              ComboContacts.Items.Refresh(); // To see the changes
+              // Hide the panels as they contain nothing now
+              canvasX.Visibility = Visibility.Hidden;
+              StackPanelBind.Visibility = Visibility.Hidden;
+              panelX.Visibility = Visibility.Hidden;
+              MessageBox.Show("Contact Deleted..");
+            }
 
+          }
         }
+        
       }
       else {
         // If any contact is not selected
