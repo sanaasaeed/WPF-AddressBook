@@ -1,0 +1,59 @@
+﻿<Window x:Class="Assignment.AddContact"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Assignment"
+        mc:Ignorable="d"
+        Title="AddContact" Height="450" Width="800" Background="#FE3362">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="5*"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+    <Image Grid.Row="0" Source="Images/uni.png"></Image>
+    <StackPanel Grid.Row="1">
+      <TextBlock Text="Fill in the relevant information" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" FontSize="28" Foreground="#fff"></TextBlock>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Margin="10 0 0 0">
+          <TextBlock FontSize="23" Text="First Name" Margin="10 0 0 5" Foreground="#fff"/>
+          <TextBox x:Name="FirstNameTb" Padding="5" Margin="10 0 0 20"/>
+          <TextBlock FontSize="23" Text="Last Name" Margin="10 0 0 5" Foreground="#fff"/>
+          <TextBox Padding="5" x:Name="LastNameTb" Margin="10 0 0 20"/>
+          <TextBlock FontSize="23" Text="Phone Number" Margin="10 0 0 5" Foreground="#fff"/>
+          <TextBox Padding="5" Margin="10 0 0 0" x:Name="PhoneNumTb"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Margin="10 0 0 0">
+          <TextBlock FontSize="23" Text="Company" Margin="10 0 0 5" Foreground="#fff"/>
+          <TextBox Padding="5" Margin="10 0 0 20" x:Name="CompanyTb"/>
+          <TextBlock FontSize="23" Text="Job Title" Margin="10 0 0 5" Foreground="#fff"/>
+          <TextBox Padding="5" Margin="10 0 0 20" x:Name="JobTb"/>
+          <TextBlock FontSize="23" Text="Address" Margin="10 0 0 5" Foreground="#fff"/>
+          <TextBox Padding="5" Margin="10 0 0 0" x:Name="AddressTb"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="2">
+          <Canvas Height="160" Width="160" Background="#fff">
+            <Image x:Name="Photo" Height="160" Width="160" Stretch="Fill"/>
+          </Canvas>
+          <Button Content="Upload Image" FontSize="20" Width="160" Margin="0 10 0 0" Click="UploadImageClick" Background="#2CE9C4"></Button>
+        </StackPanel>
+
+      </Grid>
+
+    </StackPanel>
+    <Button Content="Submit" FontSize="20" Width="160" Height="40" Grid.Row="2" Background="#2CE9C4" Click="SubmitBtnClick"></Button>
+    <Button Content="Logout" FontSize="16" Background="#2CE9C4" Margin="636,0,70.6,20" VerticalAlignment="Bottom" Click="LogOutClick"/>
+    <Button HorizontalAlignment="Right" Margin="0,0,726.6,13" VerticalAlignment="Bottom" Background="#2CE9C4" Click="BackBtnClick"  Width="40" Height="32">
+      <Image Source="Images/back.png"/>
+    </Button>
+  </Grid>
+</Window>
